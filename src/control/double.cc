@@ -1,3 +1,4 @@
+#include <unordered_map>
 #include "double.h"
 
 /**
@@ -5,33 +6,20 @@
  *
  * @param n
  * @return the sum of all values squared from 0 to n
- */
+ */ 
 long
 DoubleForLoop::SumSquare(int n) {
   long sum = 0;
   for (int i = 0; i < n; i += 1) {
-    for (int j = 0; j < n; j += 1) {
-      if (i == j) {
-        sum = sum + (long) (i * j);
-      }
-    }
+    sum += (long) (i * i);
   }
   return sum;
 }
 
-/**
- * @brief Sums all triangle numbers from T(1) to T(n)
- *
- * @param n
- * @return the sum of all triangle numbers from T(1) to T(n)
- */
-long
-DoubleForLoop::SumTriangle(int n) {
+long DoubleForLoop::SumTriangle(int n) {
   long sum = 0;
-  for (int i = 0; i < n + 1; i += 1) {
-    for (int j = 0; j < i; j += 1) {
-      sum = sum + (long) j;
-    }
+  for (int i = 0; i <= n; i++) {
+    sum += (i * (i - 1)) / 2;
   }
   return sum;
 }
@@ -44,22 +32,20 @@ DoubleForLoop::SumTriangle(int n) {
  *
  * @param v
  * @return the number of pairs in an vay
- */
+ */ 
 int
 DoubleForLoop::CountPairs(std::vector<int> v) {
-  int count = 0;
+  std::unordered_map<int, int> counts;
   for (int i = 0; i < (int) v.size(); i += 1) {
-    int nDuplicates = 0;
-    for (int j = 0; j < (int) v.size(); j += 1) {
-      if (v[i] == v[j]) {
-        nDuplicates += 1;
-      }
-    }
-    if (nDuplicates == 2) {
-      count += 1;
+    counts[v[i]]++;
+  }
+  int nPairs = 0;
+  for (auto it = counts.begin(); it != counts.end(); ++it) {
+    if (it->second == 2) {
+      nPairs++;
     }
   }
-  return count / 2;
+  return nPairs;
 }
 
 /**
