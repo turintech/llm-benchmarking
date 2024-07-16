@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "vector.h"
 
 #include <iostream>
@@ -77,21 +78,11 @@ OpsVector::SearchVector(std::vector<int> &v, int n) {
  *
  * @param v Vector to sort.
  * @return The sorted vector.
- */
+ */ 
 std::vector<int>
 OpsVector::SortVector(std::vector<int> &v) {
-  std::vector<int> ret(v);
-
-  for (int i = 0; i < (int) ret.size(); i += 1) {
-    for (int j = 0; j < (int) ret.size() - 1; j += 1) {
-      if (ret[j] > ret[j + 1]) {
-        int temp = ret[j];
-        ret[j] = ret[j + 1];
-        ret[j + 1] = temp;
-      }
-    }
-  }
-  return ret;
+  std::sort(v.begin(), v.end());
+  return v;
 }
 
 /**
