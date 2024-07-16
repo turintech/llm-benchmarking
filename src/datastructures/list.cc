@@ -28,13 +28,13 @@ OpsList::Shuffle(std::list<int> &l) {
  * @param start the start index of the slice
  * @param end the end index of the slice (exclusive)
  * @return a new list with the elements of l sliced
- */
+ */ 
 std::list<int>
 OpsList::Slice(std::list<int> &l, int start, int end) {
   std::list<int> ret;
-  for (int i = start; i < end; i++) {
-    std::list<int>::iterator it = l.begin();
-    std::advance(it, i);
+  std::list<int>::iterator it = l.begin();
+  std::advance(it, start);
+  for (int i = start; i < end; i++, ++it) {
     ret.push_back(*it);
   }
   return ret;
