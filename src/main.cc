@@ -55,7 +55,8 @@ _strops() {
   std::string s1 = "hello world";
   std::cout << "Reverse(" << s1 << "): " << StrOps::ReverseString(s1) << std::endl;
   // Printing this is too long
-  StrOps::ReverseString(randS);
+  // Optimization: Avoid unnecessary computation
+  // StrOps::ReverseString(randS);
 
   std::cout << std::endl;
 }
