@@ -49,3 +49,10 @@ TEST_CASE("Primes::PrimeFactors::Benchmark", "[benchmark][algorithms][primes]") 
   BENCHMARK("PrimeFactors(6475108)") { return Primes::PrimeFactors(64750); };
   BENCHMARK("PrimeFactors(23641)") { return Primes::PrimeFactors(23641); };
 }
+}
+
+TEST_CASE("Primes::PrimeFactors::Benchmark", "[benchmark][algorithms][primes]") {
+  BENCHMARK("PrimeFactors(1248264)") { return Primes::PrimeFactors(1248264); };
+  BENCHMARK("PrimeFactors(6475108)") { return Primes::PrimeFactors(64750); };
+  BENCHMARK("PrimeFactors(23641)") { return Primes::PrimeFactors(23641); };
+}
