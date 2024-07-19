@@ -41,23 +41,11 @@ SingleForLoop::MaxVector(std::vector<int> &arr) {
   return max;
 }
 
-/**
- * @brief Sums all values from 0 to n that are divisible by m
- *
- * @param n the upper bound (non-inclusive)
- * @param m the modulus
- * @return the sum of all values from 0 to n that are divisible by m
- */
-int
-SingleForLoop::SumModulus(int n, int m) {
-  int array[n];
+int SingleForLoop::SumModulus(int n, int m) {
   int sum = 0;
   for (int i = 0; i < n; i += 1) {
-    array[i] = i;
-  }
-  for (int i = 0; i < n; i += 1) {
-    if (array[i] % m == 0) {
-      sum += array[i];
+    if (i % m == 0) {
+      sum += i;
     }
   }
   return sum;
