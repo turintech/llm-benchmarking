@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "list.h"
 
 /** @brief shuffles a list into a new list
@@ -28,14 +29,12 @@ OpsList::Shuffle(std::list<int> &l) {
  * @param start the start index of the slice
  * @param end the end index of the slice (exclusive)
  * @return a new list with the elements of l sliced
- */
+ */ 
 std::list<int>
 OpsList::Slice(std::list<int> &l, int start, int end) {
   std::list<int> ret;
-  for (int i = start; i < end; i++) {
-    std::list<int>::iterator it = l.begin();
-    std::advance(it, i);
-    ret.push_back(*it);
-  }
+  auto it = std::next(l.begin(), start);
+  auto end_it = std::next(l.begin(), end);
+  ret.insert(ret.end(), it, end_it);
   return ret;
 }
