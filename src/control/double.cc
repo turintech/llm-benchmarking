@@ -24,15 +24,11 @@ DoubleForLoop::SumSquare(int n) {
  *
  * @param n
  * @return the sum of all triangle numbers from T(1) to T(n)
- */
+ */ 
 long
 DoubleForLoop::SumTriangle(int n) {
-  long sum = 0;
-  for (int i = 0; i < n + 1; i += 1) {
-    for (int j = 0; j < i; j += 1) {
-      sum = sum + (long) j;
-    }
-  }
+  if (n <= 0) return 0;
+  long sum = (long)n * (n - 1) * (n + 1) / 6;
   return sum;
 }
 
