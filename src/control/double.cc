@@ -19,19 +19,10 @@ DoubleForLoop::SumSquare(int n) {
   return sum;
 }
 
-/**
- * @brief Sums all triangle numbers from T(1) to T(n)
- *
- * @param n
- * @return the sum of all triangle numbers from T(1) to T(n)
- */
-long
-DoubleForLoop::SumTriangle(int n) {
+long DoubleForLoop::SumTriangle(int n) {
   long sum = 0;
-  for (int i = 0; i < n + 1; i += 1) {
-    for (int j = 0; j < i; j += 1) {
-      sum = sum + (long) j;
-    }
+  for (int i = 0; i <= n; i++) {
+    sum += (i * (i - 1)) / 2;
   }
   return sum;
 }
