@@ -22,12 +22,14 @@ Primes::IsPrime(int n) {
  *
  *  @param n Upper bound (non-inclusive) of the sum
  *  @return The sum of all prime numbers from 0 to n
- */
+ */ 
 int
 Primes::SumPrimes(int n) {
-  int sum = 0;
+  int sum = 2;  // 2 is the first prime number
 
-  for (int i = 0; i < n; i += 1) {
+  if (n <= 2) return 0;  // No primes below 2
+
+  for (int i = 3; i < n; i += 2) {  // Start from 3 and check only odd numbers
     if (IsPrime(i)) {
       sum += i;
     }
